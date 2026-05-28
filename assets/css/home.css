@@ -1,0 +1,877 @@
+/* ============================================================
+   TUPV RMS — Home Page Styles
+   assets/css/home.css
+   ============================================================ */
+
+
+/* ============================================================
+   1. HERO SECTION (Background & Layout)
+   ============================================================ */
+
+/* Main hero container with negative margin to slide under transparent headers */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    margin-top: calc(-1 * var(--header-height, 72px));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--off-white);
+}
+
+.hero-section .container {
+    width: 100%;
+}
+
+/* Crimson radial gradient blobs for background aesthetics */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 55% 65% at 90% 45%, rgba(180, 0, 0, 0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 40% at 75% 85%, rgba(139, 0, 0, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 28% 35% at 95% 10%, rgba(200, 0, 0, 0.12) 0%, transparent 55%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Subtle dot grid pattern over the background */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(139, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 70% 80% at 80% 50%, black 10%, transparent 75%);
+}
+
+/* Floating animated orbs */
+.hero-orb { 
+    position: absolute; 
+    border-radius: 50%; 
+    filter: blur(70px); 
+    pointer-events: none; 
+    z-index: 0; 
+    animation: orbFloat 9s ease-in-out infinite; 
+}
+
+.hero-orb-1 { 
+    width: 420px; 
+    height: 420px; 
+    background: rgba(180, 0, 0, 0.14); 
+    top: -80px;  
+    right: 8%;  
+    animation-delay: 0s;  
+}
+
+.hero-orb-2 { 
+    width: 260px; 
+    height: 260px; 
+    background: rgba(139, 0, 0, 0.10); 
+    bottom: 10%; 
+    right: 25%; 
+    animation-delay: -4s; 
+}
+
+
+/* ============================================================
+   2. HERO CONTENT & TYPOGRAPHY (Left/Right Split)
+   ============================================================ */
+
+/* Inner content wrapper */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Two-column flexbox layout */
+.hero-split-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.hero-left,
+.hero-right {
+    flex: 1;
+}
+
+/* Small university label (Eyebrow pill) */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(139, 0, 0, 0.07);
+    border: 1px solid rgba(139, 0, 0, 0.18);
+    color: var(--crimson);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.65s 0.15s ease forwards;
+}
+
+.hero-eyebrow::before {
+    content: '';
+    width: 6px; 
+    height: 6px;
+    border-radius: 50%;
+    background: var(--crimson);
+    flex-shrink: 0;
+}
+
+/* Massive main headline */
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 8vw, 88px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.65s 0.28s ease forwards;
+}
+
+.hero-title em {
+    font-style: italic;
+    color: var(--crimson);
+}
+
+/* Red subtitle under the headline */
+.hero-subtitle-line {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--crimson-mid);
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    animation: fadeUp 0.65s 0.40s ease forwards;
+}
+
+/* Paragraph description on the right side */
+.hero-desc {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--gray-600);
+    max-width: 100%; 
+    margin-bottom: 38px;
+    opacity: 0;
+    animation: fadeUp 0.65s 0.52s ease forwards;
+}
+
+
+/* ============================================================
+   3. HERO BUTTONS & MICRO-INTERACTIONS
+   ============================================================ */
+
+/* Button wrapper */
+.hero-actions {
+    display: flex !important;
+    gap: 14px !important;
+    justify-content: center !important;
+    opacity: 0;
+    animation: fadeUp 0.65s 0.65s ease forwards;
+}
+
+/* Base button properties shared by both primary and secondary */
+.hero-btn-primary,
+.hero-btn-secondary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 48px !important;
+    min-width: 210px !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
+    
+    /* Hardware accelerated smooth transitions */
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Solid red button */
+.hero-btn-primary {
+    gap: 9px;
+    background: var(--crimson);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--crimson);
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 18px rgba(139, 0, 0, 0.30);
+}
+
+.hero-btn-primary:hover {
+    background-color: var(--crimson-dark) !important;
+    border-color: var(--crimson-dark) !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 8px 24px rgba(139, 0, 0, 0.35) !important;
+}
+
+.hero-btn-primary:active {
+    transform: translateY(-1px) scale(0.99) !important;
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.25) !important;
+}
+
+/* Outlined button */
+.hero-btn-secondary {
+    gap: 9px;
+    background: transparent;
+    color: var(--crimson);
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    border: 2px solid var(--crimson);
+    border-radius: var(--radius-md);
+}
+
+.hero-btn-secondary:hover {
+    background-color: var(--crimson) !important;
+    color: var(--white) !important;
+    border-color: var(--crimson) !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 8px 22px rgba(139, 0, 0, 0.20) !important;
+}
+
+.hero-btn-secondary:active {
+    transform: translateY(-1px) scale(0.99) !important;
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.15) !important;
+}
+
+/* Arrow/Icon animations inside buttons */
+.btn-icon { 
+    width: 17px; 
+    height: 17px; 
+    flex-shrink: 0; 
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important; 
+}
+
+.hero-btn-primary:hover .btn-icon,
+.hero-btn-secondary:hover .btn-icon { 
+    transform: translateX(4px) !important; 
+}
+
+
+/* ============================================================
+   4. SYSTEM STATS (Bottom of Hero)
+   ============================================================ */
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    padding-top: 38px;
+    border-top: 1.5px solid var(--gray-100);
+    opacity: 0;
+    animation: fadeUp 0.65s 0.78s ease forwards;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.hero-stat-item { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2px; 
+}
+
+.hero-stat-number {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--crimson);
+    line-height: 1;
+}
+
+.hero-stat-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--gray-400);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   5. ACCESS PORTALS SECTION
+   ============================================================ */
+
+.portals-section {
+    padding: 90px 0;
+    background: var(--white);
+    position: relative;
+}
+
+/* Colored top border line */
+.portals-section::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--crimson) 30%, var(--gold) 60%, transparent 100%);
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    background: var(--crimson-pale);
+    border: 1px solid rgba(139, 0, 0, 0.16);
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 50px);
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.08;
+    margin-bottom: 12px;
+}
+
+.section-sub {
+    font-size: 15px;
+    color: var(--gray-600);
+    max-width: 460px;
+    line-height: 1.70;
+    margin-bottom: 50px;
+}
+
+.portals-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 28px !important;
+    max-width: 880px !important;
+    margin: 0 auto !important;
+}
+
+/* Standard Portal Card */
+.portal-card {
+    border-radius: 22px;
+    overflow: hidden;
+    padding: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #faf8f7;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.portal-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    transform: translateY(-3px);
+}
+
+.portal-card::before,
+.portal-card::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Featured Portal Card (Solid Crimson) */
+.portal-card.featured {
+    background: #8B1010;
+    border: none;
+    box-shadow: 0 4px 24px rgba(139, 16, 16, 0.30);
+}
+
+.portal-card.featured:hover {
+    box-shadow: 0 10px 36px rgba(139, 16, 16, 0.40);
+}
+
+/* Portal Icons */
+.portal-icon-wrap {
+    width: 54px; 
+    height: 54px;
+    border-radius: var(--radius-md);
+    background: var(--crimson-pale);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.portal-card.featured .portal-icon-wrap { 
+    background: rgba(255, 255, 255, 0.18); 
+}
+
+.portal-icon-wrap svg { 
+    width: 26px; 
+    height: 26px; 
+    color: var(--crimson); 
+}
+
+.portal-card.featured .portal-icon-wrap svg { 
+    color: var(--white); 
+}
+
+/* Portal Typography */
+.portal-card-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+}
+
+.portal-card.featured .portal-card-title { 
+    color: var(--white); 
+}
+
+.portal-card-desc { 
+    font-size: 14.5px; 
+    color: var(--gray-600); 
+    line-height: 1.68; 
+    flex: 1; 
+}
+
+.portal-card.featured .portal-card-desc { 
+    color: rgba(255, 255, 255, 0.82); 
+}
+
+/* Portal Links */
+.portal-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--crimson);
+    letter-spacing: 0.04em;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: gap var(--transition), text-decoration-color var(--transition);
+    margin-top: 4px;
+}
+
+.portal-card.featured .portal-card-cta { 
+    color: var(--gold-light); 
+}
+
+.portal-card:hover .portal-card-cta {
+    gap: 13px;
+    text-decoration-color: currentColor;
+}
+
+
+/* ============================================================
+   6. HOW IT WORKS SECTION
+   ============================================================ */
+
+.hiw-section {
+    padding: 90px 0;
+    background: var(--gray-50);
+    position: relative;
+    overflow: hidden;
+}
+
+.hiw-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(139, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+.hiw-section .section-heading { color: var(--gray-800); }
+.hiw-section .section-sub     { color: var(--gray-600); }
+
+.hiw-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Individual Step Box */
+.hiw-step {
+    text-align: center;
+    padding: 38px 26px 32px;
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    border: 1.5px solid var(--gray-100);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.hiw-step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(139, 0, 0, 0.20);
+}
+
+/* Background Number */
+.hiw-step-num {
+    font-family: var(--font-display);
+    font-size: 60px;
+    font-weight: 700;
+    color: rgba(139, 0, 0, 0.09);
+    line-height: 1;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.hiw-step-icon {
+    width: 54px; 
+    height: 54px;
+    background: var(--crimson-pale);
+    border: 1.5px solid rgba(139, 0, 0, 0.14);
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.hiw-step:hover .hiw-step-icon {
+    background: var(--crimson);
+    border-color: var(--crimson);
+}
+
+.hiw-step-icon svg { 
+    width: 22px; 
+    height: 22px; 
+    color: var(--crimson); 
+    transition: color var(--transition); 
+}
+
+.hiw-step:hover .hiw-step-icon svg { 
+    color: var(--white); 
+}
+
+.hiw-step-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+}
+
+.hiw-step-desc {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.68;
+}
+
+
+/* ============================================================
+   7. CTA (CALL TO ACTION) SECTION
+   ============================================================ */
+
+.cta-section {
+    padding: 90px 0;
+    background: var(--off-white);
+}
+
+/* Crimson Gradient Card */
+.cta-inner {
+    background: linear-gradient(135deg, #CC1111 0%, #8B0000 55%, #5C0000 100%);
+    border-radius: var(--radius-xl);
+    padding: 60px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circles inside CTA */
+.cta-inner::before {
+    content: '';
+    position: absolute;
+    right: -40px; 
+    top: -60px;
+    width: 320px; 
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+}
+
+.cta-inner::after {
+    content: '';
+    position: absolute;
+    right: 80px; 
+    bottom: -100px;
+    width: 240px; 
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+}
+
+.cta-text { 
+    position: relative; 
+    z-index: 1; 
+}
+
+.cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 10px;
+}
+
+.cta-desc {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 440px;
+    line-height: 1.70;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+/* CTA Buttons */
+.cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 30px;
+    background: var(--white);
+    color: var(--crimson-dark);
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+    border: 2px solid var(--white);
+    letter-spacing: 0.02em;
+}
+
+.cta-btn-primary:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.cta-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    padding: 13px 26px;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-radius: var(--radius-md);
+    transition: all var(--transition);
+}
+
+.cta-btn-outline:hover {
+    border-color: var(--white);
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.10);
+    transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   8. ANIMATIONS (Scroll Fade)
+   ============================================================ */
+
+@keyframes orbFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-24px) scale(1.05); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.60s ease, transform 0.60s ease;
+}
+
+.fade-up.visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+
+/* ============================================================
+   9. RESPONSIVE MEDIA QUERIES
+   ============================================================ */
+
+/* Medium Devices (Tablets/Smaller Laptops) */
+@media (max-width: 900px) {
+    .hero-split-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-actions, .hero-stats {
+        justify-content: center;
+    }
+}
+
+/* Small Devices (Mobiles) */
+@media (max-width: 768px) {
+    /* Hero Adjustments */
+    .hero-section {
+        min-height: auto !important;
+        padding-top: 140px !important; 
+        padding-bottom: 60px !important;
+    }
+
+    .hero-split-layout {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-eyebrow {
+        font-size: 9px;
+        letter-spacing: 0.12em; 
+        padding: 8px 16px;
+        white-space: normal;  
+        text-align: center;
+        line-height: 1.5;
+        max-width: 90%;            
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-desc {
+        font-size: 14px;              
+        padding: 0 16px;
+    }
+
+    /* Hero Buttons & Stats */
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center !important;
+        gap: 14px;
+    }
+
+    .hero-btn-primary, 
+    .hero-btn-secondary {
+        width: 100% !important;
+        max-width: 320px !important;
+        justify-content: center !important;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Portals Setup */
+    .portals-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 460px !important;
+    }
+
+    /* CTA Section Adjustments */
+    .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 32px 24px;
+    }
+
+    .cta-text,
+    .cta-actions {
+        width: 100%;
+    }
+
+    .cta-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cta-btn-primary,
+    .cta-btn-outline {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 640px) {
+    .hero-section { 
+        min-height: auto; 
+        padding: 130px 0 60px; 
+    }
+    
+    .hero-stats { 
+        gap: 22px; 
+    }
+    
+    .portals-section, 
+    .hiw-section, 
+    .cta-section { 
+        padding: 60px 0; 
+    }
+    
+    .cta-inner { 
+        padding: 34px 22px; 
+        border-radius: var(--radius-lg); 
+    }
+    
+    .hero-btn-primary, 
+    .hero-btn-secondary { 
+        width: 100%; 
+        justify-content: center; 
+    }
+    
+    .cta-actions { 
+        width: 100%; 
+    }
+    
+    .cta-btn-primary, 
+    .cta-btn-outline { 
+        width: 100%; 
+        text-align: center; 
+        justify-content: center; 
+    }
+}

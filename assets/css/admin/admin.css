@@ -1,0 +1,289 @@
+/* ============================================================
+   TUPV RMS — Admin Panel Styles
+   assets/css/admin/admin.css
+   ============================================================ */
+
+/* ============================================================
+   1. CARD & LAYOUT CONSTRAINTS
+   ============================================================ */
+.admin-card-sm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.admin-card-md {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.admin-mb-20 {
+    margin-bottom: 20px;
+}
+
+.admin-grid-full {
+    grid-column: 1 / -1;
+}
+
+.admin-spacer-top {
+    margin-top: 20px;
+}
+
+.admin-text-muted {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-bottom: 8px;
+}
+
+/* ============================================================
+   2. CONTROL ROWS & FILTERS
+   ============================================================ */
+.admin-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-filter-flex {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.admin-filter-group {
+    margin-bottom: 0;
+    flex: 1;
+    max-width: 350px;
+}
+
+.admin-filter-group-sm {
+    margin-bottom: 0;
+    flex: 1;
+    max-width: 300px;
+}
+
+
+/* ============================================================
+   3. BUTTONS & ACTIONS
+   ============================================================ */
+.admin-btn-group {
+    margin-top: 25px;
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    flex-wrap: wrap; 
+}
+
+.admin-inline-flex {
+    display: inline-flex;
+    gap: 5px;
+}
+
+.admin-clear-btn {
+    min-width: 120px;
+}
+
+.admin-remove-btn {
+    min-width: 0;
+    padding: 6px 12px;
+    background: var(--crimson-light);
+    border-color: var(--crimson-light);
+}
+
+.admin-compact-btn {
+    min-width: 0;
+    padding: 6px 12px;
+}
+
+.admin-card-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.admin-card-actions .btn,
+.admin-card-actions .btn-secondary {
+    flex: 1;
+    min-width: 0;
+    padding: 8px;
+}
+
+.admin-card-actions .btn-danger {
+    background: var(--crimson-light);
+    border-color: var(--crimson-light);
+}
+
+
+/* ============================================================
+   4. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet / iPad */
+@media (max-width: 1024px) {
+    .hero-section {
+        margin-top: 0;
+        padding-top: 100px; 
+        min-height: unset;
+    }
+}
+
+/* Landscape tablet / large mobile */
+@media (max-width: 900px) {
+    .hero-split-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-actions,
+    .hero-stats {
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        margin-top: 0;
+        padding-top: 140px; 
+        padding-bottom: 60px;
+        min-height: unset;
+    }
+
+    .hero-title {
+        line-height: 1.1;
+    }
+    
+    .hero-eyebrow {
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        padding: 8px 16px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.5;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+        padding: 0 16px;
+        text-align: justify !important;
+        text-justify: inter-word;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center !important;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        width: 100% !important;
+        max-width: 320px !important; 
+        justify-content: center !important;
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        width: 100%;
+    }
+
+    .hero-stat-item {
+        text-align: center;
+    }
+
+    .portals-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 460px !important;
+        margin-inline: auto;
+    }
+
+    .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 32px 24px;
+    }
+
+    .cta-text,
+    .cta-actions {
+        width: 100%;
+    }
+
+    .cta-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cta-btn-primary,
+    .cta-btn-outline {
+        width: 100%;
+        text-align: center;
+        display: block;
+        justify-content: center;
+    }
+
+    .admin-header-flex .btn {
+        padding: 6px 16px !important; 
+        font-size: 13px !important;    
+        width: auto !important;        
+        min-width: 80px !important;    
+    }
+
+    .admin-btn-group .btn,
+    .admin-btn-group .btn-secondary {
+        flex: 1 1 auto; 
+        min-width: 140px; 
+        white-space: nowrap; 
+        height: 48px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 640px) {
+    .hero-section {
+        padding-top: 130px; 
+        padding-bottom: 56px;
+    }
+
+    .hero-eyebrow {
+        font-size: 8.5px;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-stats {
+        gap: 16px;
+    }
+
+    .portals-section,
+    .hiw-section,
+    .cta-section {
+        padding: 60px 0;
+    }
+
+    .cta-inner {
+        padding: 28px 20px;
+        border-radius: var(--radius-lg);
+    }
+}

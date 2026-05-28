@@ -1,0 +1,59 @@
+/* ============================================================
+   TUPV RMS — User Portal Styles
+   assets/css/user/user.css
+   ============================================================ */
+
+/* ============================================================
+   1. USER PORTAL COMPONENTS
+   ============================================================ */
+.user-room-preview-img {
+    height: 260px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.user-room-title {
+    color: var(--crimson);
+    margin-bottom: 10px;
+}
+
+
+/* ============================================================
+   2. SPACING UTILITIES
+   ============================================================ */
+.user-mt-8  { margin-top: 8px; }
+.user-mt-10 { margin-top: 10px; }
+.user-mt-15 { margin-top: 15px; }
+.user-mt-20 { margin-top: 20px; }
+.user-mt-25 { margin-top: 25px; }
+
+
+/* ============================================================
+   3. BOOKING LAYOUT CONTROLS
+   ============================================================ */
+.booking-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+@media (max-width: 768px) {
+    .booking-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .booking-actions .btn,
+    .booking-actions .btn-secondary {
+        display: flex !important; 
+        justify-content: center !important; 
+        align-items: center !important; 
+        width: 100% !important;
+        max-width: 100% !important; 
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+}

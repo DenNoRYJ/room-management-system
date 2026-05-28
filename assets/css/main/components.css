@@ -1,0 +1,293 @@
+/* ============================================================
+   TUPV RMS — Reusable UI Components
+   assets/css/main/components.css
+   ============================================================ */
+
+/* ============================================================
+   1. BUTTONS & FORM TRIGGERS
+   ============================================================ */
+.btn, 
+.btn-secondary,
+.hero-btn-primary,
+.hero-btn-secondary {
+    height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    min-width: 160px;
+    font-family: var(--font-body);
+    background: var(--crimson);
+    color: var(--white) !important;
+    border: 2px solid var(--crimson);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+    background: var(--crimson-dark);
+    border-color: var(--crimson-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.28);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    min-width: 160px;
+    font-family: var(--font-body);
+    background: transparent;
+    color: var(--crimson) !important;
+    border: 2px solid var(--crimson);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all var(--transition);
+}
+
+.btn-secondary:hover {
+    background: var(--crimson);
+    color: var(--white) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.20);
+}
+
+.btn:disabled { 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+    transform: none !important; 
+}
+
+
+/* ============================================================
+   2. CARDS & GRIDS
+   ============================================================ */
+.card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 28px;
+    margin-bottom: 24px;
+    border: 1px solid var(--gray-100);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--crimson);
+    margin-bottom: 18px;
+    padding-left: 14px;
+    border-left: 4px solid var(--gold);
+    line-height: 1.2;
+}
+
+/* Grid Utilities */
+.grid   { display: grid; gap: 20px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+/* Interactive Listing Cards */
+.course-card, 
+.room-card, 
+.dashboard-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-100);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.course-card:hover, 
+.room-card:hover, 
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-image  { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+}
+
+.card-body   { 
+    padding: 20px; 
+}
+
+.card-body h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--crimson);
+    margin-bottom: 8px;
+}
+
+
+/* ============================================================
+   3. ALERTS & BADGES
+   ============================================================ */
+.badge { 
+    display: inline-block; 
+    padding: 4px 12px; 
+    border-radius: 999px; 
+    font-size: 12px; 
+    font-weight: 600; 
+    letter-spacing: 0.04em; 
+    text-transform: uppercase; 
+}
+.badge-available   { background: #E8F8EE; color: #1A6B38; }
+.badge-unavailable { background: #FDEAEA; color: #8B0000; }
+.badge-maintenance { background: #FFF4DC; color: #92610A; }
+
+.alert { 
+    padding: 13px 16px; 
+    border-radius: var(--radius-md); 
+    margin-bottom: 16px; 
+    font-weight: 500; 
+    font-size: 14px; 
+    border-left: 4px solid transparent; 
+}
+.alert-success { background: #EDFAF2; color: #1A6B38; border-left-color: #2ECC71; }
+.alert-danger  { background: #FDF0F0; color: var(--crimson); border-left-color: var(--crimson); }
+
+
+/* ============================================================
+   4. FORM INPUTS & CONTROLS
+   ============================================================ */
+.form-group { 
+    margin-bottom: 18px; 
+}
+
+.form-group label { 
+    display: block; 
+    font-size: 12px; 
+    font-weight: 700; 
+    color: var(--gray-600); 
+    margin-bottom: 7px; 
+    letter-spacing: 0.06em; 
+    text-transform: uppercase; 
+}
+
+.form-control {
+    width: 100%;
+    padding: 11px 14px;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    color: var(--gray-800);
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--crimson);
+    box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.10);
+}
+
+textarea.form-control { 
+    resize: vertical; 
+}
+
+
+/* ============================================================
+   5. DATA TABLES & EXTRAS
+   ============================================================ */
+.table-wrapper { 
+    overflow-x: auto; 
+    border-radius: var(--radius-md); 
+    border: 1px solid var(--gray-100); 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: var(--white); 
+    font-size: 14px; 
+}
+
+table th { 
+    background: var(--crimson); 
+    color: var(--white); 
+    padding: 13px 16px; 
+    font-weight: 600; 
+    font-size: 12px; 
+    letter-spacing: 0.07em; 
+    text-transform: uppercase; 
+    text-align: left; 
+}
+
+table td { 
+    padding: 12px 16px; 
+    border-bottom: 1px solid var(--gray-100); 
+    color: var(--gray-800); 
+}
+
+table tbody tr:hover { 
+    background: var(--crimson-pale); 
+}
+
+/* Banners & QR Components */
+.map-banner { 
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: var(--radius-lg); 
+    margin-bottom: 20px; 
+    border: 1.5px solid var(--gray-100); 
+}
+
+.qr-box { 
+    border: 2px dashed var(--crimson); 
+    padding: 24px; 
+    border-radius: var(--radius-lg); 
+    background: var(--crimson-pale); 
+    text-align: center; 
+    margin-bottom: 24px; 
+}
+
+.qr-box h3 { 
+    font-family: var(--font-display); 
+    color: var(--crimson); 
+    font-size: 20px; 
+    margin-bottom: 6px; 
+}
+
+#reader { 
+    width: 100%; 
+    max-width: 320px; 
+    margin: 15px auto; 
+    display: none; 
+}
+
+.small-text { 
+    font-size: 13px; 
+    color: var(--gray-400); 
+    margin-top: 8px; 
+}
+
+@media (max-width: 768px) {
+    .card-image { 
+        height: 180px; 
+    }
+}

@@ -1,0 +1,44 @@
+/* ============================================================
+   TUPV RMS — Public Portal Authentication Styles
+   assets/css/main/auth.css
+   ============================================================ */
+
+/* 1. Explicit wrapper to guarantee vertical and horizontal centering */
+.auth-wrapper {
+    min-height: calc(100vh - var(--nav-h) - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+/* 2. Standardized sizing for the card itself */
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+/* 3. Button grouping for identical heights and widths */
+.auth-button-group {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+    width: 100%;
+}
+
+.auth-button-group .btn,
+.auth-button-group .btn-secondary {
+    flex: 1 !important;         
+    min-width: 0 !important;    
+    text-align: center !important; 
+}
+
+/* 4. Responsive behavior for mobile screens */
+@media (max-width: 768px) {
+    .auth-wrapper {
+        min-height: calc(100vh - var(--nav-h));
+        align-items: flex-start;
+        padding: 24px 16px;
+    }
+}

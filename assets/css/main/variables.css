@@ -1,0 +1,54 @@
+/* ============================================================
+   TUPV RMS — Design Token Variables
+   assets/css/main/variables.css
+   ============================================================ */
+
+:root {
+    /* Color Palette Design Tokens */
+    --crimson:       #8B0000;
+    --crimson-dark:  #5C0000;
+    --crimson-mid:   #A50000;
+    --crimson-light: #C0392B;
+    --crimson-pale:  #FDF3F3;
+    --crimson-tint:  #F5E0E0;
+
+    --white:         #FFFFFF;
+    --off-white:     #FAF8F6;
+    --gray-50:       #F6F3F1;
+    --gray-100:      #EDE8E4;
+    --gray-200:      #D5CEC9;
+    --gray-400:      #9B918A;
+    --gray-600:      #5C524C;
+    --gray-800:      #1E1410;
+    --black:         #100600;
+
+    --gold:          #C9A84C;
+    --gold-light:    #E8CC82;
+
+    /* Font Families Mapping */
+    --font-display:  'Cormorant Garamond', Georgia, serif;
+    --font-body:     'DM Sans', system-ui, sans-serif;
+
+    /* Corner Radii Modifications */
+    --radius-sm:     6px;
+    --radius-md:     10px;
+    --radius-lg:     18px;
+    --radius-xl:     28px;
+
+    /* Depth Shadows Profiles */
+    --shadow-sm:     0 1px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md:     0 4px 18px rgba(0, 0, 0, 0.09);
+    --shadow-lg:     0 12px 40px rgba(0, 0, 0, 0.13);
+    --shadow-xl:     0 24px 64px rgba(0, 0, 0, 0.17);
+
+    /* Dimensions & Motion Timing */
+    --nav-h:         70px;
+    --transition:    0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Adjust header height variable on mobile screens */
+@media (max-width: 768px) {
+    :root { 
+        --nav-h: 62px; 
+    }
+}
