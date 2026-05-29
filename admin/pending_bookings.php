@@ -86,7 +86,7 @@ include '../includes/header.php';
                     <?php endif; ?>
                 </p>
             </div>
-            <span class="badge badge-maintenance" style="font-size: 14px; padding: 6px 14px;">
+            <span class="badge badge-maintenance responsive-badge">
                 <?= $total_pending; ?> Total Pending
             </span>
         </div>

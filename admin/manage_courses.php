@@ -109,7 +109,7 @@ include '../includes/header.php';
                     <p><strong>Code:</strong> <?= htmlspecialchars($course['course_code']); ?></p>
                     
                     <div class="admin-card-actions">
-                        <a href="edit_course.php?id=<?= $course['id']; ?>" class="btn btn-secondary">Edit Settings</a>
+                        <a href="edit_course.php?id=<?= $course['id']; ?>" class="btn btn-secondary">Edit</a>
                         <?php if (!$is_dept_admin): ?>
                             <a href="delete_course.php?id=<?= $course['id']; ?>" class="btn admin-card-actions-delete" onclick="return confirm('Are you sure you want to delete this department?');" style="background: var(--crimson-light); border-color: var(--crimson-light);">Delete</a>
                         <?php endif; ?>

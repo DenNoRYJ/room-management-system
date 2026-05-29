@@ -136,7 +136,7 @@ include '../includes/header.php';
     <div class="card">
         <h2 class="section-title">My Schedule & Bookings</h2>
         <p style="color: var(--gray-600); margin-bottom: 20px;">
-            Manage your room reservations below. If a teacher is absent, please click <strong>Cancel</strong> on that specific date to free up the room for other sections.
+            Manage your reservations below, and free up unused rooms by clicking <strong>Cancel</strong>.
         </p>
 
         <?php if ($success): ?>

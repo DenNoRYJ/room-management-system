@@ -1,6 +1,6 @@
 <?php
 /**
- * Student Directory Page (Scope-Aware & Cascade Delete)
+ * Student Directory Page (Scope-Aware, Cascade Delete, & Approval Tracking)
  * admin/list_students.php
  */
 include '../includes/db.php';
@@ -23,12 +23,11 @@ $error = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['remove_student_id'])) {
     $remove_id = intval($_POST['remove_student_id']);
     
-    // 1. Cascade Delete: Remove all bookings associated with this student first
+    // Cascade Delete
     $deleteBookingsStmt = $conn->prepare("DELETE FROM bookings WHERE student_id = ?");
     $deleteBookingsStmt->bind_param("i", $remove_id);
     $deleteBookingsStmt->execute();
 
-    // 2. Delete the student record
     $deleteStmt = $conn->prepare("DELETE FROM students WHERE id = ?");
     $deleteStmt->bind_param("i", $remove_id);
     
@@ -44,17 +43,17 @@ $course_filter = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;
 $whereClause = "WHERE students.account_status = 'Approved'";
 
 if ($is_dept_admin) {
-    // Lock list strictly to this admin's department
     $whereClause .= " AND students.course_id = " . intval($admin_course_id);
 } elseif ($course_filter > 0) {
-    // Apply Super Admin dropdown filter
     $whereClause .= " AND students.course_id = $course_filter";
 }
 
+// NEW: Joining admins table to fetch the approver's name
 $query = "
-    SELECT students.*, courses.course_name, courses.course_code 
+    SELECT students.*, courses.course_name, courses.course_code, admins.fullname AS admin_name 
     FROM students 
     INNER JOIN courses ON students.course_id = courses.id 
+    LEFT JOIN admins ON students.approved_by = admins.id
     $whereClause
     ORDER BY students.fullname ASC
 ";
@@ -100,6 +99,7 @@ include '../includes/header.php';
                         <th>Name</th>
                         <th>Email</th>
                         <?php if (!$is_dept_admin): ?><th>Department</th><?php endif; ?>
+                        <th>Approved By</th>
                         <th style="text-align: right;">Action</th>
                     </tr>
                 </thead>
@@ -113,6 +113,12 @@ include '../includes/header.php';
                                 <?php if (!$is_dept_admin): ?>
                                     <td><span class="badge badge-maintenance"><?= htmlspecialchars($row['course_code']); ?></span></td>
                                 <?php endif; ?>
+                                
+                                <!-- Display Approver -->
+                                <td style="color: var(--gray-600); font-size: 13px;">
+                                    <?= htmlspecialchars($row['admin_name'] ?? 'System / Pre-update'); ?>
+                                </td>
+                                
                                 <td style="text-align: right;">
                                     <form method="POST" style="margin: 0;" onsubmit="return confirm('Are you sure you want to completely remove this student? All their booking requests will also be deleted. This action cannot be undone.');">
                                         <input type="hidden" name="remove_student_id" value="<?= $row['id']; ?>">
@@ -122,7 +128,7 @@ include '../includes/header.php';
                             </tr>
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <tr><td colspan="<?= $is_dept_admin ? '4' : '5'; ?>" style="text-align: center; padding: 20px; color: var(--gray-400);">No approved students found.</td></tr>
+                        <tr><td colspan="<?= $is_dept_admin ? '5' : '6'; ?>" style="text-align: center; padding: 20px; color: var(--gray-400);">No approved students found.</td></tr>
                     <?php endif; ?>
                 </tbody>
             </table>

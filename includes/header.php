@@ -82,6 +82,7 @@
 
                 <?php elseif (isset($_SESSION['admin_id'])): ?>
                     <li><a href="/room-management-system/admin/dashboard.php" class="nav-link">Admin Portal</a></li>
+                    <li><a href="/room-management-system/admin/booking_history.php" class="nav-link">History Log</a></li>
                     <li><a href="/room-management-system/admin/logout.php"    class="nav-link nav-btn-outline">Logout</a></li>
 
                 <?php else: ?>

@@ -94,7 +94,6 @@ include '../includes/header.php';
             <?php endif; ?>
         </p>
 
-        <!-- Management Links Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
             
             <div style="background: var(--gray-50); padding: 18px; border-radius: var(--radius-lg); border: 1px solid var(--gray-100);">
@@ -108,6 +107,7 @@ include '../includes/header.php';
                         </svg>
                         Pending Bookings (<?= $pendingCount; ?>)
                     </a>
+                    
                     <a href="walkin_booking.php" class="btn btn-secondary" style="width: 100%; justify-content: flex-start; padding: 10px 16px; min-height: 44px;">
                         <svg style="width:18px; height:18px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0V9a2 2 0 012-2h2a2 2 0 012 2v12m-6 0h6"/>
@@ -168,7 +168,6 @@ include '../includes/header.php';
         </div>
     </div>
 
-    <!-- System Statistics Counters -->
     <div class="grid grid-3" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 24px;">
         <div class="card" style="margin-bottom: 0; padding: 20px;">
             <p style="font-size: 13px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em;">Total Students</p>
@@ -192,7 +191,6 @@ include '../includes/header.php';
         </div>
     </div>
 
-    <!-- Latest Pending Bookings Table Preview -->
     <div class="card">
         <h2 class="section-title">Latest Pending Bookings</h2>
         <div class="table-wrapper">

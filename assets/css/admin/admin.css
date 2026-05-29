@@ -119,6 +119,14 @@
    4. RESPONSIVE BREAKPOINTS
    ============================================================ */
 
+/* Global Default for the Badge (Must sit outside media queries) */
+.responsive-badge {
+    font-size: 14px;
+    padding: 6px 14px;
+    white-space: nowrap;
+    text-align: center;
+}
+
 /* Tablet / iPad */
 @media (max-width: 1024px) {
     .hero-section {
@@ -151,8 +159,9 @@
     }
 }
 
-/* Mobile */
+/* Mobile (768px and below) */
 @media (max-width: 768px) {
+    /* -- 1. Landing Page Overrides -- */
     .hero-section {
         margin-top: 0;
         padding-top: 140px; 
@@ -241,6 +250,49 @@
         justify-content: center;
     }
 
+    /* -- 2. Admin Panel Compact Overrides -- */
+    body, p, span, a, label, td, th {
+        font-size: 13px !important;
+    }
+    
+    h2.section-title, .section-title {
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    h3 { font-size: 18px !important; }
+    h4 { font-size: 15px !important; }
+
+    .card {
+        padding: 15px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .container {
+        padding: 10px !important;
+    }
+
+    table th, table td {
+        padding: 8px 10px !important;
+    }
+    
+    .table-wrapper {
+        margin-bottom: 15px !important;
+    }
+
+    /* -- 3. Admin Buttons & Badges -- */
+    .btn, .form-control {
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+        min-height: 38px !important;
+    }
+
+    .admin-compact-btn, .admin-remove-btn {
+        padding: 5px 10px !important;
+        font-size: 11px !important;
+        height: 28px !important;
+    }
+
     .admin-header-flex .btn {
         padding: 6px 16px !important; 
         font-size: 13px !important;    
@@ -258,7 +310,152 @@
         justify-content: center;
         align-items: center;
     }
+
+    .responsive-badge {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+        margin-top: 5px;
+    }
+    
+    /* -- 4. Admin Flex Layouts -- */
+    .admin-header-flex {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+    
+    .admin-header-flex .badge {
+        align-self: flex-start !important;
+    }
+
+    .admin-filter-flex {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        padding: 12px !important;
+    }
+    
+    .admin-filter-group-sm {
+        width: 100% !important;
+    }
+
+    .admin-filter-flex > div:last-child {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+
+    .admin-clear-btn {
+        width: 100% !important; 
+        justify-content: center !important;
+        margin-top: 5px !important;
+    }
 }
+
+/* Small mobile */
+@media (max-width: 640px) {
+    .hero-section {
+        padding-top: 130px; 
+        padding-bottom: 56px;
+    }
+
+    .hero-eyebrow {
+        font-size: 8.5px;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-stats {
+        gap: 16px;
+    }
+
+    .portals-section,
+    .hiw-section,
+    .cta-section {
+        padding: 60px 0;
+    }
+
+    .cta-inner {
+        padding: 28px 20px;
+        border-radius: var(--radius-lg);
+    }
+}   
+
+    .responsive-badge {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+        margin-top: 5px;
+    }
+    
+    /* -- 4. Admin Flex Layouts -- */
+    .admin-header-flex {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+    
+    .admin-header-flex .badge {
+        align-self: flex-start !important;
+    }
+
+    .admin-filter-flex {
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 12px !important;
+    }
+    
+    .admin-filter-group-sm {
+        width: 100% !important;
+    }
+    
+    .admin-clear-btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* 1. Shrink all table text and squeeze cell padding globally */
+    table th,
+    table td {
+        font-size: 11.5px !important;
+        padding: 8px 6px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 2. Make all status badges compact inside lists */
+    .badge {
+        font-size: 9.5px !important;
+        padding: 4px 6px !important;
+        white-space: nowrap !important;
+    }
+
+    /* 3. Shrink action buttons (Approve, Reject, Remove) inside tables */
+    td form {
+        margin: 0 !important;
+    }
+    
+    td .btn,
+    td .btn-secondary,
+    td .admin-compact-btn,
+    td .admin-remove-btn {
+        font-size: 10.5px !important;
+        padding: 5px 8px !important;
+        height: 26px !important;
+        min-height: 26px !important;
+        line-height: 1 !important;
+    }
+
+    /* 4. Adjust standard bulleted/numbered lists if used anywhere */
+    ul li, 
+    ol li {
+        font-size: 12.5px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .table-wrapper {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        border-radius: var(--radius-md) !important;
+        margin-bottom: 15px !important;
+    }
 
 /* Small mobile */
 @media (max-width: 640px) {

@@ -57,3 +57,43 @@
         margin: 0 !important;
     }
 }
+
+/* =========================================
+   MOBILE OVERRIDES FOR TABLES & BOOKINGS
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Shrink the table text and squeeze the padding */
+    table th, 
+    table td {
+        font-size: 11.5px !important; /* Smaller text */
+        padding: 6px 8px !important;  /* Tighter spacing */
+        line-height: 1.3 !important;
+    }
+
+    /* 2. Make the Status Badges smaller inside the table */
+    table td .badge {
+        font-size: 9.5px !important;
+        padding: 4px 6px !important;
+        letter-spacing: 0.05em;
+    }
+
+    /* 3. Shrink the Room Title (CpET Room 201) */
+    .card h3 {
+        font-size: 16px !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* 4. Shrink the "Upcoming Booking" subtext */
+    .card p, 
+    .card span {
+        font-size: 11.5px !important;
+    }
+
+    /* 5. Keep action buttons compact (Cancel / Back) */
+    .btn, 
+    .btn-outline, 
+    .btn-secondary {
+        font-size: 12.5px !important;
+        padding: 8px 14px !important;
+    }
+}
