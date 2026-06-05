@@ -193,60 +193,165 @@ include 'includes/header.php';
 <!-- ═══════════════════════════════════════
      HOW IT WORKS SECTION
 ════════════════════════════════════════ -->
-<section class="hiw-section">
-    <div class="container">
+<?php if (isset($_SESSION['admin_id'])): ?>
 
-        <span class="section-label">Simple Process</span>
-        <h2 class="section-heading">How It Works</h2>
-        <p class="section-sub">Book a room in three simple steps, from anywhere on campus.</p>
+    <section class="hiw-section">
+        <div class="container">
+            <span class="section-label">Admin Workflow</span>
+            <h2 class="section-heading">Streamlined Management</h2>
+            <p class="section-sub">Manage campus facilities and review student bookings in three simple steps.</p>
 
-        <div class="hiw-steps">
-
-            <div class="hiw-step fade-up">
-                <span class="hiw-step-num">01</span>
-                <div class="hiw-step-icon">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
+            <div class="hiw-steps">
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">01</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="hiw-step-title">Secure Login</h3>
+                    <p class="hiw-step-desc">Sign in using your designated TUPV administrator credentials to access your specific departmental dashboard.</p>
                 </div>
-                <h3 class="hiw-step-title">Login</h3>
-                <p class="hiw-step-desc">
-                    Sign in using your TUPV student credentials provided by the
-                    department administration.
-                </p>
-            </div>
-
-            <div class="hiw-step fade-up">
-                <span class="hiw-step-num">02</span>
-                <div class="hiw-step-icon">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">02</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="hiw-step-title">Review Requests</h3>
+                    <p class="hiw-step-desc">Monitor real-time room availability, oversee daily schedules, and review incoming booking requests from students.</p>
                 </div>
-                <h3 class="hiw-step-title">Browse &amp; Book</h3>
-                <p class="hiw-step-desc">
-                    Select a course, view the room map, check real-time availability,
-                    and submit your booking with preferred date and time.
-                </p>
-            </div>
-
-            <div class="hiw-step fade-up">
-                <span class="hiw-step-num">03</span>
-                <div class="hiw-step-icon">
-                    <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">03</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="hiw-step-title">Approve &amp; Manage</h3>
+                    <p class="hiw-step-desc">Approve or reject pending reservations, provide necessary remarks, and ensure optimal utilization of campus facilities.</p>
                 </div>
-                <h3 class="hiw-step-title">Get Confirmed</h3>
-                <p class="hiw-step-desc">
-                    The administrator reviews and approves your request. Track your
-                    booking status and remarks from your dashboard.
-                </p>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
+
+<?php elseif (isset($_SESSION['student_id'])): ?>
+
+    <section class="hiw-section">
+        <div class="container">
+            <span class="section-label">Simple Process</span>
+            <h2 class="section-heading">How It Works</h2>
+            <p class="section-sub">Book a room in three simple steps, from anywhere on campus.</p>
+
+            <div class="hiw-steps">
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">01</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="hiw-step-title">Login</h3>
+                    <p class="hiw-step-desc">Sign in using your TUPV student credentials provided by the department administration.</p>
+                </div>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">02</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="hiw-step-title">Browse &amp; Book</h3>
+                    <p class="hiw-step-desc">Select a course, view the room map, check real-time availability, and submit your booking with preferred date and time.</p>
+                </div>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">03</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="hiw-step-title">Get Confirmed</h3>
+                    <p class="hiw-step-desc">The administrator reviews and approves your request. Track your booking status and remarks from your dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php else: ?>
+
+    <section class="hiw-section">
+        <div class="container">
+            <span class="section-label">Student Process</span>
+            <h2 class="section-heading">How Booking Works</h2>
+            <p class="section-sub">Students can reserve rooms in three simple steps.</p>
+
+            <div class="hiw-steps">
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">01</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    </div>
+                    <h3 class="hiw-step-title">Login</h3>
+                    <p class="hiw-step-desc">Sign in using your TUPV student credentials provided by the department administration.</p>
+                </div>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">02</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="hiw-step-title">Browse &amp; Book</h3>
+                    <p class="hiw-step-desc">Select a course, view the room map, check real-time availability, and submit your booking with preferred date and time.</p>
+                </div>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">03</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="hiw-step-title">Get Confirmed</h3>
+                    <p class="hiw-step-desc">The administrator reviews and approves your request. Track your booking status and remarks from your dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hiw-section" style="padding-top: 0;">
+        <div class="container">
+            <span class="section-label">Admin Process</span>
+            <h2 class="section-heading">Streamlined Management</h2>
+            <p class="section-sub">Administrators oversee the campus facilities efficiently.</p>
+
+            <div class="hiw-steps">
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">01</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    </div>
+                    <h3 class="hiw-step-title">Secure Login</h3>
+                    <p class="hiw-step-desc">Sign in using your designated TUPV administrator credentials to access your specific departmental dashboard.</p>
+                </div>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">02</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="hiw-step-title">Review Requests</h3>
+                    <p class="hiw-step-desc">Monitor real-time room availability, oversee daily schedules, and review incoming booking requests from students.</p>
+                </div>
+                <div class="hiw-step fade-up">
+                    <span class="hiw-step-num">03</span>
+                    <div class="hiw-step-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="hiw-step-title">Approve &amp; Manage</h3>
+                    <p class="hiw-step-desc">Approve or reject pending reservations, provide necessary remarks, and ensure optimal utilization of campus facilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php endif; ?>
 
 <!-- ═══════════════════════════════════════
      BOTTOM CTA BANNER (Hidden if logged in)

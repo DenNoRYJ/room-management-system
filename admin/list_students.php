@@ -85,7 +85,7 @@ include '../includes/header.php';
                         <?php endwhile; ?>
                     </select>
                 </div>
-                <a href="list_students.php" class="btn btn-secondary admin-clear-btn">Clear Filter</a>
+                <a href="list_students.php" class="btn btn-secondary admin-clear-btn" style="height: 44px !important; margin: 0;">Clear Filter</a>
             </form>
         <?php else: ?>
             <p style="color: var(--gray-600); margin-bottom: 20px;">Displaying all approved students registered under your department.</p>

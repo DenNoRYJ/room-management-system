@@ -6,49 +6,30 @@
 /* ============================================================
    1. CARD & LAYOUT CONSTRAINTS
    ============================================================ */
-.admin-card-sm {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.admin-card-md {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.admin-mb-20 {
-    margin-bottom: 20px;
-}
-
-.admin-grid-full {
-    grid-column: 1 / -1;
-}
-
-.admin-spacer-top {
-    margin-top: 20px;
-}
-
-.admin-text-muted {
-    font-size: 13px;
-    color: var(--gray-600);
-    margin-bottom: 8px;
-}
+.admin-card-sm { max-width: 600px; margin: 0 auto; }
+.admin-card-md { max-width: 800px; margin: 0 auto; }
+.admin-mb-20 { margin-bottom: 20px; }
+.admin-grid-full { grid-column: 1 / -1; }
+.admin-spacer-top { margin-top: 20px; }
+.admin-text-muted { font-size: 13px; color: var(--gray-600); margin-bottom: 8px; }
 
 /* ============================================================
-   2. CONTROL ROWS & FILTERS
+   2. CONTROL ROWS & FILTERS (DESKTOP DEFAULT)
    ============================================================ */
 .admin-header-flex {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 20px;
 }
 
+/* This forces the filters to be side-by-side */
 .admin-filter-flex {
-    margin-bottom: 20px;
     display: flex;
-    gap: 10px;
-    align-items: flex-end;
+    flex-direction: row; 
+    align-items: flex-end; 
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .admin-filter-group {
@@ -59,10 +40,9 @@
 
 .admin-filter-group-sm {
     margin-bottom: 0;
-    flex: 1;
-    max-width: 300px;
+    flex: 0 0 auto;
+    width: 250px; /* Keeps them a consistent size next to each other */
 }
-
 
 /* ============================================================
    3. BUTTONS & ACTIONS
@@ -75,25 +55,15 @@
     flex-wrap: wrap; 
 }
 
-.admin-inline-flex {
-    display: inline-flex;
-    gap: 5px;
-}
-
-.admin-clear-btn {
-    min-width: 120px;
-}
+.admin-inline-flex { display: inline-flex; gap: 5px; }
+.admin-clear-btn { min-width: 120px; }
+.admin-compact-btn { min-width: 0; padding: 6px 12px; }
 
 .admin-remove-btn {
     min-width: 0;
     padding: 6px 12px;
     background: var(--crimson-light);
     border-color: var(--crimson-light);
-}
-
-.admin-compact-btn {
-    min-width: 0;
-    padding: 6px 12px;
 }
 
 .admin-card-actions {
@@ -114,12 +84,7 @@
     border-color: var(--crimson-light);
 }
 
-
-/* ============================================================
-   4. RESPONSIVE BREAKPOINTS
-   ============================================================ */
-
-/* Global Default for the Badge (Must sit outside media queries) */
+/* Global Default for the Badge */
 .responsive-badge {
     font-size: 14px;
     padding: 6px 14px;
@@ -127,360 +92,7 @@
     text-align: center;
 }
 
-/* Tablet / iPad */
-@media (max-width: 1024px) {
-    .hero-section {
-        margin-top: 0;
-        padding-top: 100px; 
-        min-height: unset;
-    }
-}
+/* ============================================================
+   4. RESPONSIVE BREAKPOINTS (CLEANED UP)
+   ============================================================ */
 
-/* Landscape tablet / large mobile */
-@media (max-width: 900px) {
-    .hero-split-layout {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .hero-content {
-        text-align: center;
-    }
-
-    .hero-left,
-    .hero-right {
-        width: 100%;
-    }
-
-    .hero-actions,
-    .hero-stats {
-        justify-content: center;
-    }
-}
-
-/* Mobile (768px and below) */
-@media (max-width: 768px) {
-    /* -- 1. Landing Page Overrides -- */
-    .hero-section {
-        margin-top: 0;
-        padding-top: 140px; 
-        padding-bottom: 60px;
-        min-height: unset;
-    }
-
-    .hero-title {
-        line-height: 1.1;
-    }
-    
-    .hero-eyebrow {
-        font-size: 9px;
-        letter-spacing: 0.12em;
-        padding: 8px 16px;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.5;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-desc {
-        font-size: 14px;
-        padding: 0 16px;
-        text-align: justify !important;
-        text-justify: inter-word;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center !important;
-        gap: 14px;
-        width: 100%;
-    }
-
-    .hero-btn-primary,
-    .hero-btn-secondary {
-        width: 100% !important;
-        max-width: 320px !important; 
-        justify-content: center !important;
-    }
-
-    .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        width: 100%;
-    }
-
-    .hero-stat-item {
-        text-align: center;
-    }
-
-    .portals-grid {
-        grid-template-columns: 1fr !important;
-        max-width: 460px !important;
-        margin-inline: auto;
-    }
-
-    .cta-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        padding: 32px 24px;
-    }
-
-    .cta-text,
-    .cta-actions {
-        width: 100%;
-    }
-
-    .cta-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .cta-btn-primary,
-    .cta-btn-outline {
-        width: 100%;
-        text-align: center;
-        display: block;
-        justify-content: center;
-    }
-
-    /* -- 2. Admin Panel Compact Overrides -- */
-    body, p, span, a, label, td, th {
-        font-size: 13px !important;
-    }
-    
-    h2.section-title, .section-title {
-        font-size: 20px !important;
-        margin-bottom: 10px !important;
-    }
-    
-    h3 { font-size: 18px !important; }
-    h4 { font-size: 15px !important; }
-
-    .card {
-        padding: 15px !important;
-        margin-bottom: 15px !important;
-    }
-    
-    .container {
-        padding: 10px !important;
-    }
-
-    table th, table td {
-        padding: 8px 10px !important;
-    }
-    
-    .table-wrapper {
-        margin-bottom: 15px !important;
-    }
-
-    /* -- 3. Admin Buttons & Badges -- */
-    .btn, .form-control {
-        font-size: 13px !important;
-        padding: 8px 12px !important;
-        min-height: 38px !important;
-    }
-
-    .admin-compact-btn, .admin-remove-btn {
-        padding: 5px 10px !important;
-        font-size: 11px !important;
-        height: 28px !important;
-    }
-
-    .admin-header-flex .btn {
-        padding: 6px 16px !important; 
-        font-size: 13px !important;    
-        width: auto !important;        
-        min-width: 80px !important;    
-    }
-
-    .admin-btn-group .btn,
-    .admin-btn-group .btn-secondary {
-        flex: 1 1 auto; 
-        min-width: 140px; 
-        white-space: nowrap; 
-        height: 48px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .responsive-badge {
-        font-size: 11px !important;
-        padding: 4px 8px !important;
-        margin-top: 5px;
-    }
-    
-    /* -- 4. Admin Flex Layouts -- */
-    .admin-header-flex {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
-    }
-    
-    .admin-header-flex .badge {
-        align-self: flex-start !important;
-    }
-
-    .admin-filter-flex {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
-        padding: 12px !important;
-    }
-    
-    .admin-filter-group-sm {
-        width: 100% !important;
-    }
-
-    .admin-filter-flex > div:last-child {
-        width: 100% !important;
-        display: flex !important;
-        justify-content: flex-start !important;
-    }
-
-    .admin-clear-btn {
-        width: 100% !important; 
-        justify-content: center !important;
-        margin-top: 5px !important;
-    }
-}
-
-/* Small mobile */
-@media (max-width: 640px) {
-    .hero-section {
-        padding-top: 130px; 
-        padding-bottom: 56px;
-    }
-
-    .hero-eyebrow {
-        font-size: 8.5px;
-        letter-spacing: 0.1em;
-    }
-
-    .hero-stats {
-        gap: 16px;
-    }
-
-    .portals-section,
-    .hiw-section,
-    .cta-section {
-        padding: 60px 0;
-    }
-
-    .cta-inner {
-        padding: 28px 20px;
-        border-radius: var(--radius-lg);
-    }
-}   
-
-    .responsive-badge {
-        font-size: 11px !important;
-        padding: 4px 8px !important;
-        margin-top: 5px;
-    }
-    
-    /* -- 4. Admin Flex Layouts -- */
-    .admin-header-flex {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
-    }
-    
-    .admin-header-flex .badge {
-        align-self: flex-start !important;
-    }
-
-    .admin-filter-flex {
-        flex-direction: column !important;
-        gap: 10px !important;
-        padding: 12px !important;
-    }
-    
-    .admin-filter-group-sm {
-        width: 100% !important;
-    }
-    
-    .admin-clear-btn {
-        width: 100% !important;
-        text-align: center !important;
-    }
-
-    /* 1. Shrink all table text and squeeze cell padding globally */
-    table th,
-    table td {
-        font-size: 11.5px !important;
-        padding: 8px 6px !important;
-        line-height: 1.3 !important;
-    }
-
-    /* 2. Make all status badges compact inside lists */
-    .badge {
-        font-size: 9.5px !important;
-        padding: 4px 6px !important;
-        white-space: nowrap !important;
-    }
-
-    /* 3. Shrink action buttons (Approve, Reject, Remove) inside tables */
-    td form {
-        margin: 0 !important;
-    }
-    
-    td .btn,
-    td .btn-secondary,
-    td .admin-compact-btn,
-    td .admin-remove-btn {
-        font-size: 10.5px !important;
-        padding: 5px 8px !important;
-        height: 26px !important;
-        min-height: 26px !important;
-        line-height: 1 !important;
-    }
-
-    /* 4. Adjust standard bulleted/numbered lists if used anywhere */
-    ul li, 
-    ol li {
-        font-size: 12.5px !important;
-        margin-bottom: 6px !important;
-    }
-
-    .table-wrapper {
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
-        border-radius: var(--radius-md) !important;
-        margin-bottom: 15px !important;
-    }
-
-/* Small mobile */
-@media (max-width: 640px) {
-    .hero-section {
-        padding-top: 130px; 
-        padding-bottom: 56px;
-    }
-
-    .hero-eyebrow {
-        font-size: 8.5px;
-        letter-spacing: 0.1em;
-    }
-
-    .hero-stats {
-        gap: 16px;
-    }
-
-    .portals-section,
-    .hiw-section,
-    .cta-section {
-        padding: 60px 0;
-    }
-
-    .cta-inner {
-        padding: 28px 20px;
-        border-radius: var(--radius-lg);
-    }
-}

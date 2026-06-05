@@ -99,7 +99,7 @@ include '../includes/header.php';
                 </p>
             </div>
             <span class="badge badge-available" style="font-size: 14px; padding: 6px 14px; background: var(--gray-100); color: var(--gray-800);">
-                <?= $total_records; ?> Records Found
+                <?= $total_records; ?> Record/s Found
             </span>
         </div>
 

@@ -126,7 +126,7 @@ include '../includes/header.php';
                 </select>
             </div>
             
-            <div style="flex-shrink: 0; padding-bottom: 2px;">
+            <div>
                 <a href="pending_bookings.php" class="btn btn-secondary admin-clear-btn" style="height: 44px !important; margin: 0;">Clear Filter</a>
             </div>
         </form>
